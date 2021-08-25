@@ -15,6 +15,7 @@ import { Departamentos } from '../modelo/Departamentos';
 import { DepartamentosPK } from '../modelo/DepartamentosPK';
 import { AccionPersonalPK } from '../modelo/AccionPersonalPK';
 import { json } from 'd3';
+import { NbIconConfig, NbToastrService } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-plantilla-dos',
@@ -41,7 +42,7 @@ export class PlantillaDosComponent implements OnInit {
 
 
 
-  constructor(private router: Router, public planillaService: PlanillaService, private accionPersonalService: AccionPersonalService, private fb: FormBuilder, private calendar: NgbCalendar) {
+  constructor(private toastrService: NbToastrService, private router: Router, public planillaService: PlanillaService, private accionPersonalService: AccionPersonalService, private fb: FormBuilder, private calendar: NgbCalendar) {
     planillaService.logueado = true;
     this.fechaSolicitud = this.calendar.getToday();
 
@@ -225,9 +226,26 @@ export class PlantillaDosComponent implements OnInit {
     var fecha1 = moment(fechaInicialStr);
     var fecha2 = moment(fechaFinalStr);
 
-    this.plantillaDosForm.controls['dias'].setValue(fecha2.diff(fecha1, 'days'));
+    let dias: number = Number(fecha2.diff(fecha1, 'days'));
+    this.plantillaDosForm.controls['dias'].setValue(dias + 1);
 
-    console.log(fecha2.diff(fecha1, 'days'), ' dias de diferencia');
+
+
+
+
+
+    let iconName: any = 'info-outline';
+    const iconConfig: NbIconConfig = { icon: iconName, pack: 'eva' };
+
+    var isAfter = moment(fecha1).isAfter(fecha2);
+
+
+    if( isAfter ){
+      this.plantillaDosForm.controls['dias'].setValue(0);
+      this.toastrService.show('', `la fecha final no puede ser menor a la fecha inicial`, iconConfig);
+    }
+
+
 
   }
 
@@ -314,6 +332,9 @@ export class PlantillaDosComponent implements OnInit {
 
 
   }
+
+
+
 
 
 

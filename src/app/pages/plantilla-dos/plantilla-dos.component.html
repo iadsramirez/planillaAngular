@@ -117,35 +117,46 @@
 
 
 
-            <div class="form-group col-xs-4 col-md-4">
-              <label for="email">Fecha aplica inicio:</label>
-              <div class="input-group">
-                <input (ngModelChange)="llenarFechaInicios($event)" class="form-control" [(ngModel)]="fechaInicioAplica"
-                  ngbDatepicker #d4="ngbDatepicker" [ngModelOptions]="{standalone: true}">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary fa fa-calendar" (click)="d4.toggle()" type="button"></button>
+           <div class="col-xs-12 col-md-12">
+
+            <div class="row">
+
+              <div class="form-group col-xs-4 col-md-4">
+                <label for="email"> <span class="text-danger">*</span> Fecha aplica inicio:</label>
+                <div class="input-group">
+                  <input (ngModelChange)="llenarFechaInicios($event)" class="form-control" [(ngModel)]="fechaInicioAplica"
+                    ngbDatepicker #d4="ngbDatepicker" [ngModelOptions]="{standalone: true}">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary fa fa-calendar" (click)="d4.toggle()" type="button"></button>
+                  </div>
                 </div>
               </div>
+
+
+              <div class="form-group col-xs-4 col-md-4">
+                <label for="email"><span class="text-danger">*</span>Fecha inicio inc:</label>
+                <div class="input-group">
+                  <input  class="form-control" [(ngModel)]="fechaInicio"
+                    ngbDatepicker #d5="ngbDatepicker" [ngModelOptions]="{standalone: true}">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary fa fa-calendar" (click)="d5.toggle()" type="button"></button>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
 
-            <div class="form-group col-xs-4 col-md-4">
-              <label for="email">Fecha inicio inc:</label>
-              <div class="input-group">
-                <input  class="form-control" [(ngModel)]="fechaInicio"
-                  ngbDatepicker #d5="ngbDatepicker" [ngModelOptions]="{standalone: true}">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary fa fa-calendar" (click)="d5.toggle()" type="button"></button>
-                </div>
-              </div>
-            </div>
+           </div>
 
 
 
             <div class="form-group col-xs-4 col-md-4">
-              <label for="email">Fecha aplica fin:</label>
+              <label for="email"><span class="text-danger">*</span>Fecha aplica fin:</label>
               <div class="input-group">
-                <input (ngModelChange)="llenarFechaFin($event)" (ngModelChange)="changeCalculoDias($event)" class="form-control" [(ngModel)]="fechaFinAplica"
+                <input (ngModelChange)="llenarFechaFin($event)" (ngModelChange)="changeCalculoDias($event)"
+
+                class="form-control" [(ngModel)]="fechaFinAplica"
                   ngbDatepicker #d6="ngbDatepicker" [ngModelOptions]="{standalone: true}">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary fa fa-calendar" (click)="d6.toggle()" type="button"></button>
@@ -155,7 +166,7 @@
 
 
             <div class="form-group col-xs-4 col-md-4">
-              <label for="email">Fecha fin inc:</label>
+              <label for="email"><span class="text-danger">*</span>Fecha fin inc:</label>
               <div class="input-group">
                 <input  class="form-control" [(ngModel)]="fechaFin"
                   ngbDatepicker #d7="ngbDatepicker" [ngModelOptions]="{standalone: true}">
@@ -167,7 +178,7 @@
 
 
 
-            <div class="form-group col-xs-2 col-md-2">
+            <div class="form-group col-xs-4 col-md-4">
               <label for="email">Dias:</label>
               <div class="input-group">
                 <input  class="form-control" formControlName="dias" disabled >

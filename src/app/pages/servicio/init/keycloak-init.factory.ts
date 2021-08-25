@@ -3,7 +3,7 @@ import { KeycloakService } from "keycloak-angular";
 //remoto
 
 
-/*
+
 
 export function initializeKeycloak(
   keycloak: KeycloakService
@@ -20,13 +20,13 @@ export function initializeKeycloak(
 }
 
 
-*/
+
 
 
 //local
 
 
-
+/*
 export function initializeKeycloak(
   keycloak: KeycloakService
   ) {
@@ -39,5 +39,5 @@ export function initializeKeycloak(
         }
       });
 }
-
+*/
 

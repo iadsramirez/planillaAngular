@@ -88,6 +88,17 @@ export class FormPlanillaComponent implements OnInit {
 
     ngOnInit(): void {
         this.planillaService.logueado=true;
+        this.datosPordefecto();
+     }
+
+
+     datosPordefecto(){
+      this.planillaForm.get('anioPrestamo').setValue(Number(this.fechaInicial.year));
+      this.planillaForm.get('anio').setValue(Number(this.fechaInicial.year));
+      this.planillaForm.get('mese').setValue(Number(this.fechaInicial.month));
+      this.planillaForm.get('mesPrestamo').setValue(Number(this.fechaInicial.month));
+      this.planillaForm.get('descontar').setValue(Number(1));
+      this.planillaForm.get('cuota').setValue(Number(2));
      }
 
     guardarPlanilla() {
