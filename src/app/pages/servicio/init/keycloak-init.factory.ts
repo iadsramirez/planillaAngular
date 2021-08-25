@@ -15,11 +15,12 @@ export function initializeKeycloak(
           realm: 'Planilla',
           clientId: 'frontend',
         }
+
       });
 }
+
+
 */
-
-
 
 
 //local

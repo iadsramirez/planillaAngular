@@ -319,14 +319,20 @@ export class PlantillaTresComponent implements OnInit {
     }
 
     if (this.plantillaTresForm.get('puesto').value) {
+      accionPersonal.codPuesto= Number(this.plantillaTresForm.get('puesto').value);
       accionPersonal.codNuevoPuesto = Number(this.plantillaTresForm.get('puesto').value);
     } else {
       accionPersonal.codNuevoPuesto = Number(this.depenciaEmpleado?.puesto?.puestosPK?.codPuesto);
+      accionPersonal.codPuesto= Number(this.depenciaEmpleado?.puesto?.puestosPK?.codPuesto);
     }
 
+
+
     if (this.plantillaTresForm.get('departamento').value) {
+      accionPersonal.codDepto = Number(this.plantillaTresForm.get('departamento').value);
       accionPersonal.codDeptoNuevo = Number(this.plantillaTresForm.get('departamento').value);
     } else {
+      accionPersonal.codDepto = Number(this.depenciaEmpleado?.departamento?.departamentosPK?.codDepto);
       accionPersonal.codDeptoNuevo = Number(this.depenciaEmpleado?.departamento?.departamentosPK?.codDepto);
     }
 
